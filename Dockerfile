@@ -7,8 +7,7 @@ RUN apk add --no-cache \
     busybox-suid \
     su-exec
 
-ENV DB_FILE /data/db.sqlite3
-ENV BACKUP_FILE /data/db_backup/backup.sqlite3
+ENV BACKUP_LIST "ERROR"
 ENV CRON_TIME "0 5 * * *"
 ENV TIMESTAMP false
 ENV UID 100
@@ -24,6 +23,5 @@ RUN mkdir /app/log/ \
     && chown -R app:app /app/ \
     && chmod -R 777 /app/ \
     && chmod +x /usr/local/bin/entrypoint.sh 
-#    && echo "\$CRON_TIME \$BACKUP_CMD >> \$LOGFILE 2>&1" | crontab -
 
 ENTRYPOINT ["entrypoint.sh"]

@@ -1,3 +1,16 @@
+# SQLite backup
+Fork of  [bitwarden_rs-backup](https://github.com/Bruceforce/bitwarden_rs-backup). The main purpose of the fork is to:
+* Allow backing up multiple sqlite instances
+
+The only change from the original code is that DB_FILE and BACKUP_FILE have been replaced for BACKUP_LIST.
+
+BACKUP_LIST is a comma separated list of DB_FILE:BACKUP_FILE.
+Example: `/from/service1/db.sqlite3:/to/service1-backup.sqlite3,/from/service2/db.sqlite3:/to/service2-backup.sqlite3`
+
+Have a look at the docker-compose to get an idea on how to use this container.
+
+**Original README:**
+
 # bitwarden_rs Backup
 Docker Containers for [bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs) Backup.
 
